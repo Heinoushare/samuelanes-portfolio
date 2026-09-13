@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { fsaeCar, ftcPits, headshot, sabacc } from "@/content/images";
+import {
+  fsaeCar,
+  ftcPits,
+  headshot,
+  sabacc,
+  sailboatWater,
+} from "@/content/images";
 import { site, skills } from "@/content/site";
 
 const contacts = [
@@ -171,18 +177,29 @@ export default function Home() {
           </Link>
         </div>
 
-        <p className="mt-12 text-sm leading-relaxed text-muted">
-          Also built: an Arduino remote-control sailboat with XBee radios,
-          custom perfboard electronics, and 3D-printed hull parts.{" "}
-          <a
-            href={site.links.sailboat}
-            className="text-accent hover:underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Code
-          </a>
-        </p>
+        <Link
+          href="/projects/embedded"
+          className="group mt-14 grid items-center gap-6 border-t border-line pt-10 md:grid-cols-2 md:gap-10"
+        >
+          <div className="overflow-hidden border border-line bg-card">
+            <Image
+              src={sailboatWater}
+              alt="Arduino remote-control catamaran sailboat on the water"
+              className="h-72 w-full object-cover object-[center_70%]"
+            />
+          </div>
+          <div>
+            <h3 className="font-serif text-2xl text-ink">Embedded Projects</h3>
+            <p className="mt-2 text-[15px] leading-relaxed text-muted">
+              A remote-control sailboat with XBee radios and a hand-soldered
+              adapter board, and two generations of a speedcubing timer, from
+              an ultrasonic sensor to calibrated capacitive touch pads.
+            </p>
+            <span className="mt-3 inline-block text-sm text-accent group-hover:underline">
+              See the work
+            </span>
+          </div>
+        </Link>
       </section>
     </div>
   );

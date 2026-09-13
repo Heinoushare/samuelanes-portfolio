@@ -20,7 +20,9 @@ export const site = {
     ftc2025: "https://gitlab.com/TDT2845/tdt-2025-decode",
     ftcVideo: "https://www.youtube.com/watch?v=J2ExGWOT0n8",
     ftcVideoEmbed: "https://www.youtube-nocookie.com/embed/J2ExGWOT0n8",
-    sailboat: "https://github.com/Heinoushare/SamDuino/tree/master/Sailboat",
+    samduino: "https://github.com/Heinoushare/SamDuino",
+    timerV1Video: "https://youtu.be/m-bSZaWcbeI",
+    timerV2Video: "https://youtu.be/LZfNnxXztLI",
   },
 } as const;
 
