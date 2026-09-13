@@ -139,7 +139,7 @@ export default function Home() {
               FIRST Tech Challenge
             </h3>
             <p className="mt-2 text-[15px] leading-relaxed text-muted">
-              Parallel computing, odometry + IMU + computer vision sensor fusion, CAD turret design,and a
+              Parallel computing, odometry + IMU + computer vision sensor fusion, CAD turret design, and a
               data-driven game element launcher. Three-time winning alliance · 1st Place Inspire
               Award, 2026.
             </p>
@@ -162,7 +162,7 @@ export default function Home() {
               Sabacc Web App, Serves 1000+ Users
             </h3>
             <p className="mt-2 text-[15px] leading-relaxed text-muted">
-              Founded and led a global team project develpment team. Object-oriented backend,
+              Founded and led a global project development team. Object-oriented backend,
               SQLite ↔ Postgres migrations, still actively serving users.
             </p>
             <span className="mt-3 inline-block text-sm text-accent group-hover:underline">
