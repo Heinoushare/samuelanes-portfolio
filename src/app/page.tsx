@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div>
       <section className="mx-auto max-w-5xl px-5 pt-16 pb-12 sm:pt-24">
-        <div className="flex items-start justify-between gap-8">
+        <div className="flex flex-col-reverse items-start gap-6 sm:flex-row sm:justify-between sm:gap-8">
           <div className="min-w-0 max-w-2xl">
             <p className="text-sm text-muted">{site.role}</p>
             <h1 className="mt-3 font-serif text-5xl leading-[1.1] tracking-tight text-ink sm:text-6xl">
@@ -38,7 +38,7 @@ export default function Home() {
             width={900}
             height={900}
             priority
-            className="h-20 w-20 shrink-0 rounded-full object-cover sm:h-28 sm:w-28"
+            className="h-32 w-32 shrink-0 rounded-full object-cover sm:h-44 sm:w-44 lg:h-56 lg:w-56"
           />
         </div>
 
