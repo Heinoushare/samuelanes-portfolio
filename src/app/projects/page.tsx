@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { fsaeCar, ftcPits, sabacc, sailboatWater } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Projects",
   description:
     "Engineering work by Samuel Anes: driverless controls and path planning for Carnegie Mellon Racing, four seasons of FIRST Tech Challenge robot software, a real-time multiplayer web app, and Arduino embedded projects.",
-};
+  image: fsaeCar,
+  path: "/projects",
+  type: "website",
+});
 
 type Area = {
   href: string;

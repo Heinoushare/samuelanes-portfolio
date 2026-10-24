@@ -3,12 +3,15 @@ import Image from "next/image";
 import { ProjectHeader } from "@/components/ProjectHeader";
 import { Step, Result } from "@/components/Story";
 import { ftcLauncherFit } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Turret Aiming and Launch Control",
   description:
     "A self-aiming turret for FIRST Tech Challenge Team 2845: a camera-fitted launch model, then odometry-based aiming with correction and launch-on-the-move prediction.",
-};
+  image: ftcLauncherFit,
+  path: "/projects/ftc/turret",
+});
 
 export default function TurretPage() {
   return (

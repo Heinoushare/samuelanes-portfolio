@@ -3,12 +3,15 @@ import Image from "next/image";
 import { ProjectHeader } from "@/components/ProjectHeader";
 import { Step, Formula, Result } from "@/components/Story";
 import { ftcPidGraph } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Localization and Navigation",
   description:
     "Three-wheel odometry corrected by the IMU, feeding a PID point-to-point navigator, for FIRST Tech Challenge Team 2845.",
-};
+  image: ftcPidGraph,
+  path: "/projects/ftc/localization",
+});
 
 export default function LocalizationPage() {
   return (

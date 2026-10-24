@@ -10,13 +10,17 @@ import {
   sailboatSails,
   sailboatSoldering,
   sailboatTop,
+  sailboatWater,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Remote-Control Sailboat",
   description:
     "An Arduino sailboat steered over XBee radio, with a hand-soldered adapter board and 3D-printed structure.",
-};
+  image: sailboatWater,
+  path: "/projects/embedded/sailboat",
+});
 
 const sailboatHardware = [
   ["Boat", "Arduino Nano · XBee radio on an Uno shield · SG90 and FS90MR servos · 4×AA pack"],

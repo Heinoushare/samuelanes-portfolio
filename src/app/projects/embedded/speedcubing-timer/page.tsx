@@ -8,12 +8,15 @@ import {
   timerV2,
   timerV2Shell,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Speedcubing Timer",
   description:
     "Two generations of an Arduino speedcubing timer, from ultrasonic sensing to calibrated capacitive touch pads with competition-rule penalties.",
-};
+  image: timerV2,
+  path: "/projects/embedded/speedcubing-timer",
+});
 
 type Photo = { src: StaticImageData; alt: string; caption: string };
 

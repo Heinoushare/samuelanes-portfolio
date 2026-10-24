@@ -7,12 +7,15 @@ import {
   regenResidualVsTorque,
   regenStreamSensitivity,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Regen Braking Dynamics Modelling",
   description:
     "Fitting a longitudinal braking model to Carnegie Mellon Racing vehicle logs to answer one question: how many newton-metres of regen buy one metre per second squared of deceleration?",
-};
+  image: regenDecelVsBps,
+  path: "/projects/fsae/vehicle-dynamics",
+});
 
 export default function RegenModelPage() {
   return (

@@ -9,13 +9,16 @@ import {
   sabaccV1,
   sabaccV2,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sabacc",
   description:
     "A real-time multiplayer web app for Sabacc, the Star Wars card game. SvelteKit, Flask, Socket.IO, and SQLite, serving 1,000+ users.",
-};
+  image: sabaccModern,
+  path: "/projects/sabacc",
+});
 
 const progression = [
   {

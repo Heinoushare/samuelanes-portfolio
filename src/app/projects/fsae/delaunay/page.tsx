@@ -15,13 +15,16 @@ import {
   dlnMidlineReversal,
   dlnTriangulation,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Delaunay Edge Selection",
   description:
     "Making the driverless path planner's midline extraction robust: finding why it chose wrong gates, fixing the geometry, and searching over whole paths instead of one edge at a time.",
-};
+  image: dlnChainComparison,
+  path: "/projects/fsae/delaunay",
+});
 
 const attempts = [
   ["1", "strict", "40°", "±1.0 m", "yes"],

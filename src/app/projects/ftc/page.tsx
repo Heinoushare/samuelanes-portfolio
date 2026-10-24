@@ -6,15 +6,20 @@ import {
   ftcFrameworkDiagram,
   ftcLauncherFit,
   ftcPidGraph,
+  ftcPits,
   ftcPropDetection,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "FTC Team 2845",
   description:
     "Four seasons of robot software for FIRST Tech Challenge Team 2845: concurrent subsystem control, localization, computer vision, and a self-aiming turret.",
-};
+  image: ftcPits,
+  path: "/projects/ftc",
+  type: "website",
+});
 
 type Post = {
   href: string;

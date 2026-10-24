@@ -3,13 +3,17 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { ProjectHeader } from "@/components/ProjectHeader";
 import { sailboatWater, timerV2 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Embedded Projects",
   description:
     "Personal Arduino projects: a radio-controlled sailboat with a hand-soldered adapter board, and two generations of a speedcubing timer.",
-};
+  image: sailboatWater,
+  path: "/projects/embedded",
+  type: "website",
+});
 
 type Post = {
   href: string;

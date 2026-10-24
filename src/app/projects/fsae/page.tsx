@@ -3,15 +3,20 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import {
   dlnChainComparison,
+  fsaeCar,
   fsaeMap,
   regenDecelVsBps,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Carnegie Mellon Racing",
   description:
     "Driverless controls and path planning work on Carnegie Mellon Racing's Formula SAE Electric car: regenerative braking strategy, longitudinal dynamics modelling, and Delaunay edge selection.",
-};
+  image: fsaeCar,
+  path: "/projects/fsae",
+  type: "website",
+});
 
 const roles = [
   {

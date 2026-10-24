@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { ProjectHeader } from "@/components/ProjectHeader";
 import { Step, Result } from "@/components/Story";
+import { ftcFrameworkDiagram } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Concurrent Subsystem Control",
   description:
     "A command-based robot software architecture for FIRST Tech Challenge Team 2845, letting the drivetrain, intake and launcher run at the same time during autonomous.",
-};
+  image: ftcFrameworkDiagram,
+  path: "/projects/ftc/command-framework",
+});
 
 const framework = [
   {

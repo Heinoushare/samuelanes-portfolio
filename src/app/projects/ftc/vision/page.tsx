@@ -7,12 +7,15 @@ import {
   ftcElementDetection,
   ftcPropDetection,
 } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Computer Vision Pipelines",
   description:
     "OpenCV pipelines for FIRST Tech Challenge Team 2845: finding a team prop in a crowded gym, locating game pieces, and lining up on AprilTags.",
-};
+  image: ftcPropDetection,
+  path: "/projects/ftc/vision",
+});
 
 export default function VisionPage() {
   return (

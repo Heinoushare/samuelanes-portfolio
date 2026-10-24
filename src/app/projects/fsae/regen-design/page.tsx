@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ProjectHeader } from "@/components/ProjectHeader";
 import { fsaeCar, fsaeMap, fsaeOverlay } from "@/content/images";
+import { pageMetadata } from "@/content/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Regenerative Braking Control Design",
   description:
     "Two regen control strategies for Carnegie Mellon Racing's Formula SAE Electric car: a one-pedal accelerator map designed from first principles, and the parallel brake-pedal strategy the team chose to race.",
-};
+  image: fsaeMap,
+  path: "/projects/fsae/regen-design",
+});
 
 export default function OnePedalRegenPage() {
   return (
