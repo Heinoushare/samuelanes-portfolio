@@ -15,6 +15,7 @@ import {
   dlnMidlineReversal,
   dlnTriangulation,
 } from "@/content/images";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Delaunay Edge Selection",
@@ -33,7 +34,7 @@ const attempts = [
 
 export default function DelaunayPage() {
   return (
-    <article className="mx-auto max-w-3xl px-5 py-16">
+    <article className="mx-auto max-w-3xl px-5 py-10 sm:py-16">
       <ProjectHeader
         kicker="Carnegie Mellon Racing · Driverless Path Planning"
         title="Delaunay Edge Selection"
@@ -42,6 +43,32 @@ export default function DelaunayPage() {
         stack="C++ · ROS 2 Humble · Linux · Docker · Foxglove · rosbag replay · Formula Student Driverless Simulator"
         status="Validated in replay and sim"
       />
+
+
+      <figure className="mt-6 sm:mt-10">
+        <div className="aspect-video overflow-hidden border border-line bg-ink">
+          <iframe
+            title="The driverless car running this path planner in simulation"
+            src={site.links.delaunaySim10HookEmbed}
+            className="h-full w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <figcaption className="mt-3 text-sm text-muted">
+          The planner running in the simulator. Cyan is the midline it
+          publishes, and the car is following it at a 10 m/s target speed —
+          fast enough that holding the line becomes its own problem. Why it
+          clips cones here, and not at 6 m/s,{" "}
+          <a
+            href="#simulation"
+            className="text-accent underline-offset-4 hover:underline"
+          >
+            further down
+          </a>
+          .
+        </figcaption>
+      </figure>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
         <p>
@@ -68,6 +95,7 @@ export default function DelaunayPage() {
           worked in this codebase before I took this on.
         </p>
       </section>
+
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         <figure>
@@ -682,6 +710,68 @@ export default function DelaunayPage() {
           </p>
         </Step>
       </Chapter>
+
+      <section
+        id="simulation"
+        className="mt-20 scroll-mt-20 border-t border-line pt-10"
+      >
+        <h2 className="font-serif text-2xl text-ink">Driving It in Simulation</h2>
+        <p className="mt-4 text-[17px] leading-relaxed text-ink/90">
+          Two runs of the same track in the Formula Student Driverless
+          Simulator, with the planner unchanged and only the controller’s
+          target speed moved. Both complete the lap.
+        </p>
+
+        <div className="mt-8 space-y-10">
+          <figure>
+            <div className="aspect-video overflow-hidden border border-line bg-ink">
+              <iframe
+                title="Delaunay path planning in simulation at 6 m/s"
+                src={site.links.delaunaySim6Embed}
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <figcaption className="mt-3 text-sm text-muted">
+              Target speed 6 m/s. The car completes the lap without touching a
+              cone.
+            </figcaption>
+          </figure>
+          <figure>
+            <div className="aspect-video overflow-hidden border border-line bg-ink">
+              <iframe
+                title="Delaunay path planning in simulation at 10 m/s"
+                src={site.links.delaunaySim10Embed}
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <figcaption className="mt-3 text-sm text-muted">
+              Target speed 10 m/s, starting at 0:15 where the cone strikes
+              begin. Same lap, same planner, a good deal more carnage.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="mt-8 space-y-4 text-[17px] leading-relaxed text-ink/90">
+          <p>
+            The interesting part is which half breaks. The planner holds up at
+            both speeds: it keeps finding the corridor and the car gets around
+            the track either way. What changes is how well the car holds the
+            line it was given, and at 10 m/s it does not, so it clips cones
+            through the corners it took cleanly at 6.
+          </p>
+          <p>
+            That is a controls problem sitting downstream of a path planning
+            problem, and seeing the two fail separately is most of why I want
+            to work on both. Giving the controller a corridor it can trust is
+            only useful up to the point where the controller can follow it, and
+            there is clearly work left on each side of that handoff.
+          </p>
+        </div>
+      </section>
 
       <section className="mt-20 border-t border-line pt-10">
         <h2 className="font-serif text-2xl text-ink">Status and Results</h2>

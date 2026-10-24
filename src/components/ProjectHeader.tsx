@@ -20,12 +20,12 @@ export function ProjectHeader({
   links?: LinkItem[];
 }) {
   return (
-    <header className="border-b border-line pb-10">
+    <header className="border-b border-line pb-8 sm:pb-10">
       <p className="text-xs uppercase tracking-[0.14em] text-muted">{kicker}</p>
-      <h1 className="mt-3 font-serif text-4xl leading-tight text-ink sm:text-5xl">
+      <h1 className="mt-3 font-serif text-3xl leading-tight text-ink sm:text-5xl">
         {title}
       </h1>
-      <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink/90">
+      <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink/90 sm:mt-5 sm:text-lg">
         {outcome}
       </p>
       {status ? (
