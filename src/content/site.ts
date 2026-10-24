@@ -6,7 +6,7 @@ export const site = {
   interests:
     "Robotics, controls, systems, and software",
   proof:
-    "On Carnegie Mellon Racing\u2019s driverless team I lead two systems: the regenerative braking strategy, and the Delaunay edge selection that turns perceived cone positions into the path the car follows. My rebuild of that selection removed the planner\u2019s mis-planned frames in replay and extended its usable lookahead by 54%, and goes on the car this weekend. Before CMU I led FTC software for four seasons and shipped a real-time multiplayer game to 1,000+ users.",
+    "On Carnegie Mellon Racing\u2019s driverless team I lead two systems: the regenerative braking strategy, and the Delaunay edge selection that turns perceived cone positions into the path the car follows. My rebuild of that selection removed the planner\u2019s mis-planned frames in replay and extended its usable lookahead by 54%. Before CMU I led FTC software for four seasons and shipped a real-time multiplayer game to 1,000+ users.",
   links: {
     resume: "/resume.pdf",
     email: "mailto:sanes@andrew.cmu.edu",

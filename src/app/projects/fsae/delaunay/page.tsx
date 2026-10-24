@@ -40,7 +40,7 @@ export default function DelaunayPage() {
         outcome="The driverless car builds its path by pairing up cones into gates and driving through the middle of them. It was picking the wrong pairs often enough to steer the car off line. I made the selection robust, and in the process learned that the fix was geometry and search, not tuning."
         meta="Oct 2026 · Pittsburgh, PA · Delaunay Edge Selection Lead"
         stack="C++ · ROS 2 Humble · Linux · Docker · Foxglove · rosbag replay · Formula Student Driverless Simulator"
-        status="Validated in replay and sim · Track test upcoming"
+        status="Validated in replay and sim"
       />
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
@@ -750,9 +750,8 @@ export default function DelaunayPage() {
         <div className="mt-8 space-y-4 text-[17px] leading-relaxed text-ink/90">
           <h3 className="font-serif text-xl text-ink">Next Steps</h3>
           <p>
-            This goes on the car for the first time this weekend. Everything
-            above is replay and simulation; the track is the real test, and I
-            will update this page with what it does.
+            Everything above is replay and simulation. The track is the real
+            test, and this has yet to run on the car.
           </p>
           <p>
             Two things I know are still missing. The node remains memoryless,
