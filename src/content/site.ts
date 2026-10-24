@@ -6,7 +6,7 @@ export const site = {
   interests:
     "Robotics, controls, systems, and software",
   proof:
-    "On CMU's Formula SAE Electric team, I designed a speed-dependent one-pedal regen map, checked it against logged vehicle data, and track-tested it on the car. Before that I led FTC software for four seasons and shipped a real-time multiplayer game to 1,000+ users.",
+    "On Carnegie Mellon Racing\u2019s driverless team I lead two systems: the regenerative braking strategy, and the Delaunay edge selection that turns perceived cone positions into the path the car follows. My rebuild of that selection removed the planner\u2019s mis-planned frames in replay and extended its usable lookahead by 54%, and goes on the car this weekend. Before CMU I led FTC software for four seasons and shipped a real-time multiplayer game to 1,000+ users.",
   links: {
     resume: "/resume.pdf",
     email: "mailto:sanes@andrew.cmu.edu",
@@ -26,22 +26,44 @@ export const site = {
   },
 } as const;
 
+export const coursework = [
+  "Intro to Electrical and Computer Engineering",
+  "Calculus in Three Dimensions",
+  "Concepts of Mathematics",
+] as const;
+
 export const skills = {
-  languages: ["Python", "Java", "C", "C++", "SQL", "JavaScript", "HTML", "CSS", "Svelte"],
+  programming: [
+    "Python",
+    "Java",
+    "C",
+    "C++",
+    "SQL",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "Svelte",
+  ],
   tools: [
-    "Git",
+    "GitHub",
+    "Claude Code",
+    "ROS 2",
+    "Verilog",
+    "Linux",
     "Android Studio",
-    "OpenCV",
-    "Arduino",
     "Onshape",
-    "Altium Designer",
-    "3D Printing",
-    "CNC Milling",
+  ],
+  hardware: [
+    "Arduino",
+    "3D Printers",
+    "CNC Machines",
+    "Multimeter",
+    "Oscilloscope",
   ],
   extracurriculars: [
-    "Eagle Scout", 
+    "Eagle Scout",
     "FIRST Dean's List Semi-Finalist",
-    "FCC Licensed Amateur Radio Operator",
-    "Competitive Rubik's Cuber",
+    "FCC Amateur Extra",
+    "World Cube Association Competitor",
   ],
 } as const;

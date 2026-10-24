@@ -39,7 +39,7 @@ export default function DelaunayPage() {
         title="Delaunay Edge Selection"
         outcome="The driverless car builds its path by pairing up cones into gates and driving through the middle of them. It was picking the wrong pairs often enough to steer the car off line. I made the selection robust, and in the process learned that the fix was geometry and search, not tuning."
         meta="Oct 2026 · Pittsburgh, PA · Delaunay Edge Selection Lead"
-        stack="C++ · ROS 2 Humble · Docker · Foxglove · rosbag replay · Formula Student Driverless Simulator"
+        stack="C++ · ROS 2 Humble · Linux · Docker · Foxglove · rosbag replay · Formula Student Driverless Simulator"
         status="Validated in replay and sim · Track test upcoming"
       />
 

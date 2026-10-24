@@ -14,6 +14,7 @@ import fsaeMap from "../../assets/fsae-map.png";
 import fsaeOverlay from "../../assets/fsae-overlay.png";
 import ftcApriltagApproach from "../../assets/ftc-apriltag-approach.jpg";
 import ftcElementDetection from "../../assets/ftc-element-detection.jpg";
+import ftcFrameworkDiagram from "../../assets/ftc-framework-diagram.jpg";
 import ftcLauncherFit from "../../assets/ftc-launcher-fit.jpg";
 import ftcPidGraph from "../../assets/ftc-pid-graph.jpg";
 import ftcPits from "../../assets/ftc-pits.jpg";
@@ -59,6 +60,7 @@ export {
   fsaeOverlay,
   ftcApriltagApproach,
   ftcElementDetection,
+  ftcFrameworkDiagram,
   ftcLauncherFit,
   ftcPidGraph,
   ftcPits,

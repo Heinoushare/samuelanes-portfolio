@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 
 const nav = [
-  { href: "/#projects", label: "Projects" },
+  { href: "/projects", label: "Projects" },
   { href: site.links.resume, label: "Resume" },
   { href: site.links.github, label: "GitHub", external: true },
   { href: site.links.gitlab, label: "GitLab", external: true },

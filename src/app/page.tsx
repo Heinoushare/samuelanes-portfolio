@@ -7,7 +7,7 @@ import {
   sabacc,
   sailboatWater,
 } from "@/content/images";
-import { site, skills } from "@/content/site";
+import { coursework, site, skills } from "@/content/site";
 
 const contacts = [
   { href: site.links.resume, label: "Resume" },
@@ -67,18 +67,35 @@ export default function Home() {
             Carnegie Mellon University, B.S. Electrical and Computer
             Engineering, Graduating May 2030.
           </p>
-          <div className="mt-6 grid gap-6 sm:grid-cols-3">
+          <div className="mt-5 max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.14em] text-muted">
+              Relevant Coursework
+            </p>
+            <ul className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-sm text-muted">
+              {coursework.map((course, i) => (
+                <li key={course} className="whitespace-nowrap">
+                  {course}
+                  {i < coursework.length - 1 ? (
+                    <span aria-hidden className="pl-2 text-line">
+                      ·
+                    </span>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-muted">
-                Programming Languages
+                Programming
               </p>
               <p className="mt-2 text-sm leading-relaxed">
-                {skills.languages.join(" · ")}
+                {skills.programming.join(" · ")}
               </p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-muted">
-                Tools
+                Software &amp; Tools
               </p>
               <p className="mt-2 text-sm leading-relaxed">
                 {skills.tools.join(" · ")}
@@ -86,7 +103,15 @@ export default function Home() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-muted">
-                Extra
+                Hardware
+              </p>
+              <p className="mt-2 text-sm leading-relaxed">
+                {skills.hardware.join(" · ")}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-muted">
+                Extracurriculars
               </p>
               <p className="mt-2 text-sm leading-relaxed">
                 {skills.extracurriculars.join(" · ")}
@@ -125,8 +150,8 @@ export default function Home() {
                 planner. Three write-ups.
               </p>
             </div>
-            <span className="text-sm text-accent group-hover:underline">
-              Read the work
+            <span className="text-sm text-accent underline underline-offset-4">
+              See the work
             </span>
           </div>
         </Link>
@@ -150,7 +175,7 @@ export default function Home() {
               data-driven game element launcher. Three-time winning alliance · 1st Place Inspire
               Award, 2026.
             </p>
-            <span className="mt-3 inline-block text-sm text-accent group-hover:underline">
+            <span className="mt-3 inline-block text-sm text-accent underline underline-offset-4">
               See the work
             </span>
           </Link>
@@ -172,7 +197,7 @@ export default function Home() {
               Founded and led a global project development team. Object-oriented backend,
               SQLite ↔ Postgres migrations, still actively serving users.
             </p>
-            <span className="mt-3 inline-block text-sm text-accent group-hover:underline">
+            <span className="mt-3 inline-block text-sm text-accent underline underline-offset-4">
               See the work
             </span>
           </Link>
@@ -196,7 +221,7 @@ export default function Home() {
               adapter board, and two generations of a speedcubing timer, from
               an ultrasonic sensor to calibrated capacitive touch pads.
             </p>
-            <span className="mt-3 inline-block text-sm text-accent group-hover:underline">
+            <span className="mt-3 inline-block text-sm text-accent underline underline-offset-4">
               See the work
             </span>
           </div>

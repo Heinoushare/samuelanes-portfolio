@@ -36,6 +36,7 @@ type Post = {
   title: string;
   blurb: string;
   status: string;
+  skills: string[];
   image: StaticImageData;
   alt: string;
 };
@@ -48,6 +49,14 @@ const posts: Post[] = [
     blurb:
       "The path planner was pairing up the wrong cones and steering the car off line. Fixing it meant instrumenting the solver, correcting three geometric assumptions, and searching over whole paths instead of one edge at a time.",
     status: "Sim-validated",
+    skills: [
+      "C++",
+      "ROS 2",
+      "Computational Geometry",
+      "Linux",
+      "Docker",
+      "Simulation",
+    ],
     image: dlnChainComparison,
     alt: "Three candidate midline chains drawn over cone positions, each labelled with its cost and reach",
   },
@@ -58,6 +67,13 @@ const posts: Post[] = [
     blurb:
       "Fitting a braking model to a season of vehicle logs to find out how much deceleration a newton-metre of regen actually buys. The answer is a range, and the reason why is the interesting part.",
     status: "Analysis",
+    skills: [
+      "Python",
+      "NumPy / SciPy",
+      "Robust Regression",
+      "Vehicle Dynamics",
+      "Data Analysis",
+    ],
     image: regenDecelVsBps,
     alt: "Scatter of deceleration against brake pressure for 364 braking events, with regen and no-regen events separated",
   },
@@ -68,6 +84,13 @@ const posts: Post[] = [
     blurb:
       "Two ways to give a driver regen: under the accelerator, or added to the brake pedal. I designed both, validated the first against logged vehicle data, and the team races the second.",
     status: "On the car",
+    skills: [
+      "C",
+      "STM32 Firmware",
+      "Control Design",
+      "Python",
+      "Matplotlib",
+    ],
     image: fsaeMap,
     alt: "Torque request plotted against pedal position, with the coast point moving as speed rises",
   },
@@ -135,6 +158,16 @@ export default function FsaeIndexPage() {
               <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted">
                 {post.blurb}
               </p>
+              <ul className="mt-4 flex flex-wrap gap-x-2 gap-y-2 border-t border-line pt-4">
+                {post.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="border border-line px-2 py-0.5 text-[11px] uppercase tracking-[0.08em] text-muted"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
               <p className="mt-4 text-xs uppercase tracking-[0.12em] text-accent">
                 {post.status}
               </p>
