@@ -24,8 +24,6 @@ export const site = {
     delaunaySim6Embed: "https://www.youtube-nocookie.com/embed/lYyrDwRgMv0",
     delaunaySim10: "https://youtu.be/KOWORM7GLJ8",
     delaunaySim10Embed: "https://www.youtube-nocookie.com/embed/KOWORM7GLJ8?start=15",
-    delaunaySim10HookEmbed:
-      "https://www.youtube-nocookie.com/embed/KOWORM7GLJ8?start=20&autoplay=1&mute=1&playsinline=1&rel=0",
     samduino: "https://github.com/Heinoushare/SamDuino",
     timerV1Video: "https://youtu.be/m-bSZaWcbeI",
     timerV2Video: "https://youtu.be/LZfNnxXztLI",

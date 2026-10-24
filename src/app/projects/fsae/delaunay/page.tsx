@@ -46,15 +46,20 @@ export default function DelaunayPage() {
 
 
       <figure className="mt-6 sm:mt-10">
-        <div className="aspect-video overflow-hidden border border-line bg-ink">
-          <iframe
-            title="The driverless car running this path planner in simulation"
-            src={site.links.delaunaySim10HookEmbed}
-            className="h-full w-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
+        <video
+          title="The driverless car running this path planner in simulation"
+          src="/delaunay-hook.mp4"
+          poster="/delaunay-hook-poster.jpg"
+          width={1898}
+          height={1080}
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+          preload="metadata"
+          className="h-auto w-full border border-line bg-ink"
+        />
         <figcaption className="mt-3 text-sm text-muted">
           The planner running in the simulator. Cyan is the midline it
           publishes, and the car is following it at a 10 m/s target speed —
