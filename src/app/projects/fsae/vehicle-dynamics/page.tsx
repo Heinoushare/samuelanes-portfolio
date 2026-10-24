@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ProjectHeader } from "@/components/ProjectHeader";
-import { Chapter, FigureSlot, Formula, Result, Step } from "@/components/Story";
+import { Chapter, Formula, Result, Step } from "@/components/Story";
+import {
+  regenDecelVsBps,
+  regenResidualVsTorque,
+  regenStreamSensitivity,
+} from "@/content/images";
 
 export const metadata: Metadata = {
   title: "Regen Braking Dynamics Modelling",
@@ -181,11 +187,20 @@ export default function RegenModelPage() {
           </p>
         </Step>
 
-        <FigureSlot
-          id="2.1"
-          what="Scatter of deceleration against brake pressure, regen-on events in one colour and regen-off in another, with the fitted stage-one line through the regen-off points. The two populations separate up to about 700 psi and converge around 900 psi."
-          caption="Regen sits above the brake-only fit everywhere in the linear region, then converges at the tire limit, where pressure is no longer what sets the deceleration."
-        />
+        <figure className="mt-8">
+          <Image
+            src={regenDecelVsBps}
+            alt="Scatter of deceleration against mean front brake pressure for 364 events, regen events in green above no-regen events in blue, with the fitted brake model as a dashed line"
+            className="h-auto w-full border border-line bg-white"
+          />
+          <figcaption className="mt-3 text-sm text-muted">
+            All 364 braking events. The dashed line is the brake model, fitted
+            on the no-regen events alone. Regen events (green) sit above it
+            through the linear region; the two populations converge at the top
+            of the pressure range, where the tires rather than the pressure set
+            the deceleration.
+          </figcaption>
+        </figure>
       </Chapter>
 
       <Chapter
@@ -228,11 +243,19 @@ export default function RegenModelPage() {
           </p>
         </Step>
 
-        <FigureSlot
-          id="3.1"
-          what="Residual deceleration (what the brake model could not explain) against commanded regen torque, one point per event, with the fitted slope and its confidence band."
-          caption="The regen fit. The slope is the number the ticket asked for; the width of the band is the honest part."
-        />
+        <figure className="mt-8">
+          <Image
+            src={regenResidualVsTorque}
+            alt="Residual deceleration plotted against mean commanded regen torque, one point per event, with the fitted regen slope drawn through it"
+            className="h-auto w-full border border-line bg-white"
+          />
+          <figcaption className="mt-3 text-sm text-muted">
+            What the brake model could not explain, plotted against commanded
+            regen torque. The no-regen events (blue) stack at zero torque and
+            scatter around zero residual, which is the null check. The fit
+            through the regen events is 0.179 m/s² per N·m.
+          </figcaption>
+        </figure>
       </Chapter>
 
       <Chapter
@@ -243,8 +266,8 @@ export default function RegenModelPage() {
       >
         <Step label="Sensitivity Across Data Streams">
           <p>
-            A teammate could reasonably ask which deceleration signal I used,
-            so I reran the whole pipeline on four of them: the longitudinal
+            The obvious question is which deceleration signal I used, so I
+            reran the whole pipeline on four of them: the longitudinal
             accelerometer, its pitch-corrected version, and the derivative of
             two different speed channels.
           </p>
@@ -282,11 +305,19 @@ export default function RegenModelPage() {
           </p>
         </Step>
 
-        <FigureSlot
-          id="4.1"
-          what="Two panels: left, a scatter of commanded regen torque against brake pressure showing the −0.949 relationship; right, the regen slope plotted across the four deceleration streams, showing it moving 4–5× while brake authority stays put."
-          caption="The most useful figure in the project. The left panel is why the right panel happens."
-        />
+        <figure className="mt-8">
+          <Image
+            src={regenStreamSensitivity}
+            alt="The analysis tool: selectors for deceleration, speed and torque channels above live fit results, with the brake-pressure to regen-torque correlation flagged at minus 0.949"
+            className="h-auto w-full border border-line bg-white"
+          />
+          <figcaption className="mt-3 text-sm text-muted">
+            I built the analysis as a tool rather than a script, so any
+            teammate can swap the input channels and watch the fit move. Brake
+            authority and held-out R² barely budge. The regen slope does, and
+            the flagged correlation in the last tile is why.
+          </figcaption>
+        </figure>
       </Chapter>
 
       <Chapter
@@ -337,52 +368,33 @@ export default function RegenModelPage() {
           </p>
         </Step>
 
-        <FigureSlot
-          id="5.1"
-          what="Deceleration against commanded torque for the nine pure-regen driverless events, with the fitted line, and the implied-mass figure annotated against the car's actual mass."
-          caption="Nine events with no mechanical braking anywhere in them. The slope implies a 308 kg car; the real one is about 300."
-        />
-      </Chapter>
-
-      <Chapter
-        id="thermal"
-        number="06"
-        context="The question I could not answer"
-        title="Thermal Characterisation"
-      >
-        <Step label="Why It Cannot Be Answered Yet">
+        <Step label="Why the Path Planning Work Feeds This One">
           <p>
-            The other half of the ticket asked what regen does to motor and
-            battery temperatures. I could not answer it from any data the team
-            has collected, and saying so was more useful than producing a
-            number.
+            That request has a dependency, and it is my other project. Every
+            driverless lap is a pure-regen dataset by construction, so the way
+            to get regen events across a range of speeds is simply to run the
+            car driverless more, and over more varied ground. Skidpad holds a
+            constant radius at a near-constant speed, which is why these nine
+            events are packed into 3 km/h. Autocross has corners of every
+            radius, straights to brake from, and therefore braking events
+            spread across the speed range.
           </p>
           <p>
-            Total energy recovered across every regen event in the dataset is
-            about <strong>300 kJ (83 Wh)</strong>. Almost all of that is stored
-            in the pack rather than dissipated; only resistive losses become
-            heat, call it 5 to 10%. Against a pack thermal mass of roughly
-            50 kJ/K, that is a few tenths of a degree, which is below the
-            ambient drift over a testing day.
-          </p>
-          <p>
-            The data agrees. On the driverless runs, cell temperature rose
-            0.0 °C through both regen sessions. And the control session with
-            regen switched off entirely heated the motors just as much as the
-            regen sessions did, because motor heating on this car is dominated
-            by driving, not by regen.
-          </p>
-          <p>
-            Answering it properly needs a purpose-built session: repeated
-            back-to-back hard regen stops with nothing else going on.
+            The car only runs driverless autocross if the path planner can be
+            trusted on a track it has never seen, at speed, without handing the
+            controller a corridor that does not exist. That is exactly what the{" "}
+            <a
+              href="/projects/fsae/delaunay"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              Delaunay edge selection work
+            </a>{" "}
+            is for. Making the planner robust is what unlocks the dataset this
+            model needs, which is a connection I did not expect when I picked
+            up the second project.
           </p>
         </Step>
 
-        <Result>
-          The thermal question is not blocked on analysis. It is blocked on a
-          test nobody has run yet, and now the team knows exactly which test it
-          is.
-        </Result>
       </Chapter>
 
       <section className="mt-20 border-t border-line pt-10">

@@ -19,6 +19,9 @@ import ftcPidGraph from "../../assets/ftc-pid-graph.jpg";
 import ftcPits from "../../assets/ftc-pits.jpg";
 import ftcPropDetection from "../../assets/ftc-prop-detection.jpg";
 import headshot from "../../assets/headshot.jpg";
+import regenDecelVsBps from "../../assets/regen-decel-vs-bps.jpg";
+import regenResidualVsTorque from "../../assets/regen-residual-vs-torque.jpg";
+import regenStreamSensitivity from "../../assets/regen-stream-sensitivity.jpg";
 import sabacc from "../../assets/sabacc.jpg";
 import sabaccArchitecture from "../../assets/sabacc-architecture.png";
 import sabaccMobile from "../../assets/sabacc-mobile.jpg";
@@ -61,6 +64,9 @@ export {
   ftcPits,
   ftcPropDetection,
   headshot,
+  regenDecelVsBps,
+  regenResidualVsTorque,
+  regenStreamSensitivity,
   sabacc,
   sabaccArchitecture,
   sabaccMobile,

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { dlnChainComparison, fsaeMap, fsaeOverlay } from "@/content/images";
+import {
+  dlnChainComparison,
+  fsaeMap,
+  regenDecelVsBps,
+} from "@/content/images";
 
 export const metadata: Metadata = {
   title: "Carnegie Mellon Racing",
@@ -32,7 +36,7 @@ type Post = {
   title: string;
   blurb: string;
   status: string;
-  image: StaticImageData | null;
+  image: StaticImageData;
   alt: string;
 };
 
@@ -54,8 +58,8 @@ const posts: Post[] = [
     blurb:
       "Fitting a braking model to a season of vehicle logs to find out how much deceleration a newton-metre of regen actually buys. The answer is a range, and the reason why is the interesting part.",
     status: "Analysis",
-    image: fsaeOverlay,
-    alt: "Logged vehicle data with throttle, recomputed pedal map output and brake position overlaid",
+    image: regenDecelVsBps,
+    alt: "Scatter of deceleration against brake pressure for 364 braking events, with regen and no-regen events separated",
   },
   {
     href: "/projects/fsae/regen-design",
@@ -116,17 +120,11 @@ export default function FsaeIndexPage() {
               className="group flex flex-col"
             >
               <div className="overflow-hidden border border-line bg-card">
-                {post.image ? (
-                  <Image
-                    src={post.image}
-                    alt={post.alt}
-                    className="h-44 w-full bg-white object-cover object-center"
-                  />
-                ) : (
-                  <div className="flex h-44 w-full items-center justify-center px-4 text-center text-xs uppercase tracking-[0.12em] text-accent">
-                    Image needed
-                  </div>
-                )}
+                <Image
+                  src={post.image}
+                  alt={post.alt}
+                  className="h-44 w-full bg-white object-cover object-center"
+                />
               </div>
               <p className="mt-4 text-xs uppercase tracking-[0.12em] text-muted">
                 {post.kicker}

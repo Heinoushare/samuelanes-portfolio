@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ProjectHeader } from "@/components/ProjectHeader";
-import { Chapter, FigureSlot, Formula, Result, Step } from "@/components/Story";
+import { Chapter, Formula, Result, Step } from "@/components/Story";
 import {
   dlnCandidatesByStep,
   dlnChainComparison,
@@ -419,12 +419,6 @@ export default function DelaunayPage() {
             cannot discriminate, no matter how you tune it.
           </p>
         </Step>
-
-        <FigureSlot
-          id="2.1"
-          what="One annotated corner frame: the true gate drawn diagonally across the corner at ~38°, a same-boundary edge at 47° that the filter accepts, and the reference axis the angle is measured against."
-          caption="Why the angle filter cannot separate these two. The legal-looking edge is the wrong one."
-        />
       </Chapter>
 
       <Chapter
@@ -772,12 +766,6 @@ export default function DelaunayPage() {
           </p>
         </div>
       </section>
-
-      <FigureSlot
-        id="6.1"
-        what="Before/after path overlay on the same frame: main branch's chosen gates and midline against this branch's, ideally on a corner frame where the old code picked the cross-corner diagonal."
-        caption="The same cone frame, planned by both versions."
-      />
     </article>
   );
 }
