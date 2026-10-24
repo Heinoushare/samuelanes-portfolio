@@ -43,6 +43,28 @@ export function Formula({ children }: { children: ReactNode }) {
   );
 }
 
+export function FigureSlot({
+  id,
+  what,
+  caption,
+}: {
+  id: string;
+  what: string;
+  caption: string;
+}) {
+  return (
+    <figure className="mt-8 border border-dashed border-accent/60 bg-card p-5">
+      <p className="text-xs uppercase tracking-[0.14em] text-accent">
+        Figure {id} — needed
+      </p>
+      <p className="mt-2 text-[15px] leading-relaxed text-ink">{what}</p>
+      <figcaption className="mt-3 text-sm text-muted">
+        Draft caption: {caption}
+      </figcaption>
+    </figure>
+  );
+}
+
 export function Result({ children }: { children: ReactNode }) {
   return (
     <div className="mt-10 border border-line bg-card px-5 py-4">

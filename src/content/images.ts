@@ -1,3 +1,14 @@
+import dlnCandidatesByStep from "../../assets/dln-candidates-by-step.jpg";
+import dlnChainComparison from "../../assets/dln-chain-comparison.jpg";
+import dlnChainRoots from "../../assets/dln-chain-roots.jpg";
+import dlnChainSteps from "../../assets/dln-chain-steps.png";
+import dlnExteriorTriangle from "../../assets/dln-exterior-triangle.png";
+import dlnFailure from "../../assets/dln-failure.jpg";
+import dlnGatesInterpolate from "../../assets/dln-gates-interpolate.png";
+import dlnMeshAfter from "../../assets/dln-mesh-after.jpg";
+import dlnMeshBefore from "../../assets/dln-mesh-before.jpg";
+import dlnMidlineReversal from "../../assets/dln-midline-reversal.jpg";
+import dlnTriangulation from "../../assets/dln-triangulation.jpg";
 import fsaeCar from "../../assets/fsae-car.jpg";
 import fsaeMap from "../../assets/fsae-map.png";
 import fsaeOverlay from "../../assets/fsae-overlay.png";
@@ -29,6 +40,17 @@ import timerV2 from "../../assets/timer-v2.jpg";
 import timerV2Shell from "../../assets/timer-v2-shell.jpg";
 
 export {
+  dlnCandidatesByStep,
+  dlnChainComparison,
+  dlnChainRoots,
+  dlnChainSteps,
+  dlnExteriorTriangle,
+  dlnFailure,
+  dlnGatesInterpolate,
+  dlnMeshAfter,
+  dlnMeshBefore,
+  dlnMidlineReversal,
+  dlnTriangulation,
   fsaeCar,
   fsaeMap,
   fsaeOverlay,

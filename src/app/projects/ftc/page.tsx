@@ -21,22 +21,22 @@ export const metadata: Metadata = {
 const chapters = [
   {
     id: "architecture",
-    title: "Doing more than one thing at a time",
+    title: "Concurrent Subsystem Control",
     problem: "A robot that works one step at a time wastes its 30 seconds.",
   },
   {
     id: "localization",
-    title: "Knowing where the robot is",
+    title: "Localization and Navigation",
     problem: "Both common odometry setups lose accuracy in different ways.",
   },
   {
     id: "vision",
-    title: "Seeing the field",
+    title: "Computer Vision Pipelines",
     problem: "The camera had to find a red or blue prop in a gym full of red and blue.",
   },
   {
     id: "turret",
-    title: "Scoring from anywhere",
+    title: "Turret Aiming and Launch Control",
     problem: "Aiming by turning the robot fell apart under defense.",
   },
 ];
@@ -92,7 +92,7 @@ export default function FtcPage() {
         links={[
           { href: site.links.ftc2025, label: "2025–26 code", external: true },
           { href: site.links.ftc2023, label: "2023–24 code", external: true },
-          { href: site.links.ftcVideo, label: "2026 design video", external: true },
+          { href: site.links.ftcVideo, label: "2026 Design Video", external: true },
         ]}
       />
 
@@ -145,9 +145,9 @@ export default function FtcPage() {
         id="architecture"
         number="01"
         context="Software architecture · 2023–26"
-        title="Doing more than one thing at a time"
+        title="Concurrent Subsystem Control"
       >
-        <Step label="The problem">
+        <Step label="The Problem">
           <p>
             Thirty seconds is not much time. A robot that drives, stops, runs
             its intake, stops, and then scores spends most of autonomous
@@ -158,7 +158,7 @@ export default function FtcPage() {
           </p>
         </Step>
 
-        <Step label="What I built">
+        <Step label="What I Built">
           <p>
             In 2023–24 I rebuilt the robot code around four kinds of modules.
             Subsystems own the hardware and expose simple methods. Commands
@@ -199,7 +199,7 @@ export default function FtcPage() {
           </figcaption>
         </figure>
 
-        <Step label="When it got harder">
+        <Step label="Scaling to Four Threads">
           <p>
             By 2025–26, the robot had to aim a turret, hold a flywheel at
             speed, sort balls, and run its intake, all while driving. With
@@ -229,9 +229,9 @@ export default function FtcPage() {
         id="localization"
         number="02"
         context="Odometry and PID navigation · 2023–24"
-        title="Knowing where the robot is"
+        title="Localization and Navigation"
       >
-        <Step label="The problem">
+        <Step label="The Problem">
           <p>
             Before I worked on it, the robot tracked its position with two
             odometry wheels and got its heading from the IMU. That is accurate
@@ -243,7 +243,7 @@ export default function FtcPage() {
           </p>
         </Step>
 
-        <Step label="What I built">
+        <Step label="What I Built">
           <p>
             So I used both. A third wheel measures heading moment to moment:
           </p>
@@ -308,9 +308,9 @@ export default function FtcPage() {
         id="vision"
         number="03"
         context="OpenCV pipelines · 2023–24"
-        title="Seeing the field"
+        title="Computer Vision Pipelines"
       >
-        <Step label="The problem">
+        <Step label="The Problem">
           <p>
             In 2023–24, a team prop was placed on one of three spike marks at
             random, and the robot had to find it to choose its autonomous
@@ -322,7 +322,7 @@ export default function FtcPage() {
           </p>
         </Step>
 
-        <Step label="What I built">
+        <Step label="What I Built">
           <p>
             I solved part of the problem before writing any code, by designing
             the prop to be easy to pick out: a solid-colored cube. A cube looks
@@ -352,7 +352,7 @@ export default function FtcPage() {
           </figcaption>
         </figure>
 
-        <Step label="Taking it further">
+        <Step label="Extending to Game Pieces">
           <p>
             Once the robot could find the prop, I wanted it to score more in
             autonomous, which meant finding game pieces too. A second pipeline
@@ -418,9 +418,9 @@ export default function FtcPage() {
         id="turret"
         number="04"
         context="Turret aiming and launcher control · 2025–26"
-        title="Scoring from anywhere"
+        title="Turret Aiming and Launch Control"
       >
-        <Step label="The problem">
+        <Step label="The Problem">
           <p>
             In the 2025–26 game, robots launch balls into a goal. We started
             by aiming the whole robot at it, but that fell apart as soon as
@@ -431,7 +431,7 @@ export default function FtcPage() {
           </p>
         </Step>
 
-        <Step label="First attempt: a curve fit to camera data">
+        <Step label="First Attempt: Camera-Based Curve Fit">
           <p>
             My first model used the camera alone. The goal’s AprilTag takes up
             less of the image the farther away it is, so I drove to 17 spots,
@@ -459,7 +459,7 @@ export default function FtcPage() {
           </figcaption>
         </figure>
 
-        <Step label="What broke, and the fix">
+        <Step label="Failure Mode and Redesign">
           <p>
             It worked, but only while the camera could see the tag, and tag
             readings get unreliable when the robot is moving. In a real match
@@ -515,7 +515,7 @@ export default function FtcPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-serif text-2xl text-ink">2026 design video</h2>
+        <h2 className="font-serif text-2xl text-ink">2026 Design Video</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-ink/90">
           Five minutes on the 2025–26 robot: the turret and its custom
           bearing, aiming, and how the code was organized so more teammates

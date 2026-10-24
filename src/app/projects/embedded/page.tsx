@@ -27,13 +27,13 @@ export const metadata: Metadata = {
 const chapters = [
   {
     id: "sailboat",
-    title: "Remote-control sailboat",
+    title: "Remote-Control Sailboat",
     problem:
       "Steer a battery-powered boat by radio, with the wrong shield for the board that fit.",
   },
   {
     id: "timer",
-    title: "Speedcubing timer",
+    title: "Speedcubing Timer",
     problem:
       "Build a practice timer that feels like the ones used at competitions.",
   },
@@ -76,9 +76,9 @@ export default function EmbeddedPage() {
         meta="2022–2023 · Personal projects"
         stack="Arduino (C++) · Python · XBee radios · Soldering · Onshape · 3D printing · Fritzing"
         links={[
-          { href: site.links.samduino, label: "All code", external: true },
-          { href: site.links.timerV2Video, label: "Timer V2 demo", external: true },
-          { href: site.links.timerV1Video, label: "Timer V1 demo", external: true },
+          { href: site.links.samduino, label: "All Code", external: true },
+          { href: site.links.timerV2Video, label: "Timer V2 Demo", external: true },
+          { href: site.links.timerV1Video, label: "Timer V1 Demo", external: true },
         ]}
       />
 
@@ -128,9 +128,9 @@ export default function EmbeddedPage() {
         id="sailboat"
         number="01"
         context="Wireless control · Custom electronics · 2023"
-        title="Remote-control sailboat"
+        title="Remote-Control Sailboat"
       >
-        <Step label="The goal">
+        <Step label="Objective">
           <p>
             A sailboat I could control from shore: trim the sail and steer the
             rudder over a radio link, from either a laptop or a handheld
@@ -149,7 +149,7 @@ export default function EmbeddedPage() {
           </ul>
         </Step>
 
-        <Step label="A hull I could keep changing">
+        <Step label="Hull Design">
           <p>
             I made the boat a catamaran: two water bottles joined by a
             3D-printed deck and keel. Two hulls make it far more stable than
@@ -174,7 +174,7 @@ export default function EmbeddedPage() {
           ]}
         />
 
-        <Step label="The problem: the wrong shield">
+        <Step label="Shield Incompatibility">
           <p>
             To make the batteries last, the boat runs on an Arduino Nano and
             micro servos. But the only XBee radio shield I had was made for the
@@ -214,7 +214,7 @@ export default function EmbeddedPage() {
           ]}
         />
 
-        <Step label="Firmware and the radio link">
+        <Step label="Firmware and Radio Link">
           <p>
             Commands travel over the XBee link as single characters at 9600
             baud: one pair for sail in and out, one for rudder left and right,
@@ -232,7 +232,7 @@ export default function EmbeddedPage() {
           </p>
         </Step>
 
-        <Step label="Iterating on the structure">
+        <Step label="Structural Iteration">
           <p>
             The rudder and sail both went through more than one version. The
             original sail frame was made from kebab sticks, which are weak and
@@ -268,9 +268,9 @@ export default function EmbeddedPage() {
         id="timer"
         number="02"
         context="Sensors · Calibration · 2022–2023"
-        title="Speedcubing timer"
+        title="Speedcubing Timer"
       >
-        <Step label="The goal">
+        <Step label="Objective">
           <p>
             I compete in speedcubing. At official competitions, solves are
             timed on a Stackmat: you rest both hands on the pads, lift them to
@@ -280,7 +280,7 @@ export default function EmbeddedPage() {
           </p>
         </Step>
 
-        <Step label="Version 1: ultrasonic">
+        <Step label="Version 1: Ultrasonic Sensing">
           <p>
             The first version had a single input, an HC-SR04 ultrasonic
             sensor, which detects the cube instead of hands. It measures how
@@ -316,7 +316,7 @@ export default function EmbeddedPage() {
           ]}
         />
 
-        <Step label="Version 2: what was wrong, and the fix">
+        <Step label="Version 2: Capacitive Touch">
           <p>
             V1 worked, but it didn’t feel like a real timer, since it sensed the
             cube rather than your hands, and the electronics sat exposed on a
@@ -352,7 +352,7 @@ export default function EmbeddedPage() {
           ]}
         />
 
-        <Step label="The hard part: sensors that won’t hold still">
+        <Step label="Sensor Calibration">
           <p>
             The touch pads were the hardest part to get working reliably. A
             capacitive reading depends on everything around it: humidity,

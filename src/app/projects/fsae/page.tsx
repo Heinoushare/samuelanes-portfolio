@@ -1,164 +1,148 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { ProjectHeader } from "@/components/ProjectHeader";
-import { fsaeCar, fsaeMap, fsaeOverlay } from "@/content/images";
+import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
+import { dlnChainComparison, fsaeMap, fsaeOverlay } from "@/content/images";
 
 export const metadata: Metadata = {
-  title: "CMU Formula SAE Electric",
+  title: "Carnegie Mellon Racing",
   description:
-    "A speed-dependent one-pedal regenerative braking map for CMU Formula SAE Electric, validated by replaying vehicle logs and track-tested in September 2026.",
+    "Driverless controls and path planning work on Carnegie Mellon Racing's Formula SAE Electric car: regenerative braking strategy, longitudinal dynamics modelling, and Delaunay edge selection.",
 };
 
-export default function FsaePage() {
+const roles = [
+  {
+    subteam: "Driverless Path Planning",
+    title: "Delaunay Edge Selection Lead",
+    period: "Oct 2026 – present",
+    summary:
+      "Own the step that turns perceived cone positions into the centreline the controller plans against, and the robustness of the selection that produces it.",
+  },
+  {
+    subteam: "Driverless Controls",
+    title: "Regenerative Braking Lead",
+    period: "Sept 2026 – present",
+    summary:
+      "Own how the car converts pedal and torque commands into deceleration: the control strategy, the firmware that runs it, and the analysis that says how much braking it actually delivers.",
+  },
+];
+
+type Post = {
+  href: string;
+  kicker: string;
+  title: string;
+  blurb: string;
+  status: string;
+  image: StaticImageData | null;
+  alt: string;
+};
+
+const posts: Post[] = [
+  {
+    href: "/projects/fsae/delaunay",
+    kicker: "Driverless Path Planning · Oct 2026",
+    title: "Delaunay Edge Selection",
+    blurb:
+      "The path planner was pairing up the wrong cones and steering the car off line. Fixing it meant instrumenting the solver, correcting three geometric assumptions, and searching over whole paths instead of one edge at a time.",
+    status: "Sim-validated",
+    image: dlnChainComparison,
+    alt: "Three candidate midline chains drawn over cone positions, each labelled with its cost and reach",
+  },
+  {
+    href: "/projects/fsae/vehicle-dynamics",
+    kicker: "Driverless Controls · Oct 2026",
+    title: "Regen Braking Dynamics Modelling",
+    blurb:
+      "Fitting a braking model to a season of vehicle logs to find out how much deceleration a newton-metre of regen actually buys. The answer is a range, and the reason why is the interesting part.",
+    status: "Analysis",
+    image: fsaeOverlay,
+    alt: "Logged vehicle data with throttle, recomputed pedal map output and brake position overlaid",
+  },
+  {
+    href: "/projects/fsae/regen-design",
+    kicker: "Driverless Controls · Sept 2026",
+    title: "Regenerative Braking Control Design",
+    blurb:
+      "Two ways to give a driver regen: under the accelerator, or added to the brake pedal. I designed both, validated the first against logged vehicle data, and the team races the second.",
+    status: "On the car",
+    image: fsaeMap,
+    alt: "Torque request plotted against pedal position, with the coast point moving as speed rises",
+  },
+];
+
+export default function FsaeIndexPage() {
   return (
-    <article className="mx-auto max-w-3xl px-5 py-16">
-      <ProjectHeader
-        kicker="CMU Formula SAE Electric · Driverless Controls"
-        title="One-pedal regenerative braking"
-        outcome="A speed-dependent accelerator map that lets the driver brake with regen just by lifting off the pedal. I checked it against logs from earlier sessions, then wrote the firmware that ran it on track."
-        meta="Sept 2026 · Pittsburgh, PA"
-        stack="C (STM32 firmware) · Python · NumPy · Matplotlib · asammdf"
-        status="Track-tested · September 2026"
-      />
-
-      <figure className="mt-10">
-        <Image
-          src={fsaeCar}
-          alt="CMU Formula SAE Electric car 46 on track, driverless"
-          width={2400}
-          height={1600}
-          priority
-          className="h-[min(28rem,60vh)] w-full border border-line object-cover object-[center_62%]"
-        />
-        <figcaption className="mt-3 text-sm text-muted">
-          The 26x car on track, running driverless.
-        </figcaption>
-      </figure>
-
-      <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">Why</h2>
-        <p>
-          Regenerative braking turns speed back into battery charge instead of
-          brake heat, which matters most in endurance, where efficiency is
-          scored. The team also needed regen-heavy running early in the season
-          to measure cell temperatures and motor derating, data that feeds the
-          design of the 2027 car.
+    <article className="mx-auto max-w-5xl px-5 py-16">
+      <header className="max-w-3xl">
+        <p className="text-xs uppercase tracking-[0.14em] text-muted">
+          Carnegie Mellon Racing · Formula SAE Electric
         </p>
-        <p>
-          The previous design put regen on a steering-wheel paddle. It never
-          worked, and its throw was awkward enough that pulling it all the way
-          meant moving your whole hand. The goal was to move regen onto the
-          accelerator: lift off and the car slows down, the way most electric
-          road cars behave.
+        <h1 className="mt-3 font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          Driverless Controls and Path Planning
+        </h1>
+        <p className="mt-5 text-lg leading-relaxed text-ink/90">
+          Carnegie Mellon Racing builds an electric Formula SAE car that also
+          drives itself. I lead two pieces of it: how the car turns torque
+          commands into deceleration, and how it decides where the track goes.
         </p>
+      </header>
+
+      <section className="mt-12">
+        <h2 className="text-xs uppercase tracking-[0.14em] text-muted">Roles</h2>
+        <div className="mt-5 grid gap-6 sm:grid-cols-2">
+          {roles.map((role) => (
+            <div key={role.title} className="border-l-2 border-accent pl-5">
+              <p className="text-xs uppercase tracking-[0.12em] text-accent">
+                {role.subteam}
+              </p>
+              <h3 className="mt-2 font-serif text-xl text-ink">{role.title}</h3>
+              <p className="mt-1 text-sm text-muted">{role.period}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-ink/90">
+                {role.summary}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">What didn’t work</h2>
-        <p>
-          The obvious version, regen whenever the pedal is released, needs a
-          threshold. Replaying logs showed the pedal crossing any threshold
-          hundreds of times a session, and it only behaved with 0.15 s of
-          hysteresis bolted on, which cut predicted regen episodes from 942 to
-          115 on one log.
-        </p>
-        <p>
-          Splitting the pedal in half, regen below 50% and drive above, avoids
-          that. But the driver has to press past halfway just to pull away, and
-          the drive side loses half its resolution.
-        </p>
-      </section>
-
-      <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">The map</h2>
-        <p>
-          The final map moves the coast point, the pedal position where torque
-          crosses zero, with speed:
-        </p>
-        <p className="border-l-2 border-accent pl-4 font-serif text-xl italic">
-          z = p(1 + k) − k,{" "}
-          <span className="not-italic text-base text-muted">
-            k = clamp(avg motor RPM / regen_max_rpm, 0, 1)
-          </span>
-        </p>
-        <p>
-          p is pedal travel from 0 to 1, and z is the torque request from −1 to
-          1. Negative z is scaled by a regen gain (0.1 on the car).
-        </p>
-        <p>
-          At a standstill k is 0, so z = p and the pedal behaves exactly as it
-          always has. As the car speeds up, the coast point climbs toward half
-          the pedal and a regen zone opens beneath it. Three useful properties
-          come for free: regen fades to zero as the car stops, so it can never
-          push the car backwards; full throttle always reaches full torque; and
-          because the map passes straight through zero, pedal noise near the
-          coast point barely changes the torque, so no hysteresis is needed.
-        </p>
-      </section>
-
-      <figure className="mt-8">
-        <Image
-          src={fsaeMap}
-          alt="One-pedal map: torque request versus pedal position, and coast point versus speed"
-          width={1560}
-          height={660}
-          className="h-auto w-full border border-line bg-white"
-        />
-        <figcaption className="mt-3 text-sm text-muted">
-          Left: torque request against pedal position at 70 km/h, with other
-          speeds in grey. Right: how the coast point and full-lift deceleration
-          change with speed. Plotted in km/h with speed_max = 100 km/h and gain
-          0.10; the firmware uses motor RPM.
-        </figcaption>
-      </figure>
-
-      <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">Checking it against old logs</h2>
-        <p>
-          Before it went on the car, I replayed logged sessions through the
-          same function in Python. Throttle, brake position, and per-motor RPM
-          go onto a common 100 Hz grid, and average motor RPM is rebuilt the way
-          the firmware computes it. The replay answers one primary question: when the driver actually braked,
-          would regen already have been on? On an autocross run, yes for 99.8%
-          of braking time, and 96.6% on a September test session. In the window
-          below, requested deceleration peaks at 0.28 g, well within what the
-          tires can take.
-        </p>
-        <p>
-          That coverage number is the trustworthy one. The replay assumes the
-          driver’s foot does what it did under the old pedal map, and under the
-          new one they would press further for the same torque, so how often
-          regen engages is only an upper bound. But a driver about to brake
-          lifts off the throttle either way.
-        </p>
-      </section>
-
-      <figure className="mt-8">
-        <Image
-          src={fsaeOverlay}
-          alt="Logged autocross window comparing actual throttle, recomputed one-pedal output, and brake position"
-          width={1950}
-          height={845}
-          className="h-auto w-full border border-line bg-white"
-        />
-        <figcaption className="mt-3 text-sm text-muted">
-          Autocross, 95–135 s. Blue is logged throttle, green is the same pedal
-          passed through the map (speed_max = 100 km/h, gain 0.15), dashed grey
-          is the coast point, and peach is brake position. Every brake
-          application in the window already has regen engaged underneath it.
-        </figcaption>
-      </figure>
-
-      <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">On the car</h2>
-        <p>
-          The map runs in the Endurance gear on the drive control module. It
-          only reinterprets the pedal. The result feeds the existing torque
-          allocator, which splits it across all four motors within each tire’s
-          grip limit and blocks regen when the battery can’t accept charge.
-          Older logs already showed individual motors regenerating, so the
-          hardware path wasn’t new; the change was making regen deliberate.
-        </p>
+      <section className="mt-16 border-t border-line pt-10">
+        <h2 className="text-xs uppercase tracking-[0.14em] text-muted">
+          Write-Ups
+        </h2>
+        <div className="mt-6 grid gap-8 md:grid-cols-3">
+          {posts.map((post) => (
+            <Link
+              key={post.href}
+              href={post.href}
+              className="group flex flex-col"
+            >
+              <div className="overflow-hidden border border-line bg-card">
+                {post.image ? (
+                  <Image
+                    src={post.image}
+                    alt={post.alt}
+                    className="h-44 w-full bg-white object-cover object-center"
+                  />
+                ) : (
+                  <div className="flex h-44 w-full items-center justify-center px-4 text-center text-xs uppercase tracking-[0.12em] text-accent">
+                    Image needed
+                  </div>
+                )}
+              </div>
+              <p className="mt-4 text-xs uppercase tracking-[0.12em] text-muted">
+                {post.kicker}
+              </p>
+              <h3 className="mt-2 font-serif text-2xl leading-snug text-ink group-hover:underline">
+                {post.title}
+              </h3>
+              <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted">
+                {post.blurb}
+              </p>
+              <p className="mt-4 text-xs uppercase tracking-[0.12em] text-accent">
+                {post.status}
+              </p>
+            </Link>
+          ))}
+        </div>
       </section>
     </article>
   );

@@ -114,14 +114,15 @@ export default function Home() {
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-accent">
-                Featured · Regenerative Braking, Driverless Controls
+                Featured · Driverless Controls and Path Planning
               </p>
               <h2 className="mt-2 font-serif text-3xl text-ink">
-                CMU Formula SAE Electric
+                Carnegie Mellon Racing
               </h2>
               <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-muted">
-                Speed-dependent pedal map for regenerative braking. Tested on logged
-                vehicle data, then run on the car, September 2026.
+                One-pedal regenerative braking, the vehicle dynamics work behind
+                it, and robust Delaunay edge selection for the driverless path
+                planner. Three write-ups.
               </p>
             </div>
             <span className="text-sm text-accent group-hover:underline">
@@ -142,7 +143,7 @@ export default function Home() {
               />
             </div>
             <h3 className="mt-4 font-serif text-2xl text-ink">
-              FIRST Tech Challenge
+              FIRST Tech Challenge Robotics
             </h3>
             <p className="mt-2 text-[15px] leading-relaxed text-muted">
               Parallel computing, odometry + IMU + computer vision sensor fusion, CAD turret design, and a
@@ -165,7 +166,7 @@ export default function Home() {
               />
             </div>
             <h3 className="mt-4 font-serif text-2xl text-ink">
-              Sabacc Web App, Serves 1000+ Users
+              Sabacc Multiplayer Web Application
             </h3>
             <p className="mt-2 text-[15px] leading-relaxed text-muted">
               Founded and led a global project development team. Object-oriented backend,

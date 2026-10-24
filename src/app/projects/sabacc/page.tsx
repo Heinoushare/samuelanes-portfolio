@@ -40,7 +40,7 @@ export default function SabaccPage() {
     <article className="mx-auto max-w-3xl px-5 py-16">
       <ProjectHeader
         kicker="Sabacc · Founder and lead developer"
-        title="A real-time multiplayer card game"
+        title="Real-Time Multiplayer Card Game"
         outcome="A web app for playing Sabacc, the card game from Star Wars, against other people online. I built it alone, open-sourced it, and brought on developers from across the country. It has served 1,000+ users and is still running."
         meta="2023–present · Solo until April 2024, then a team project"
         stack="SvelteKit · TypeScript · Python · Flask · Socket.IO · SQLite · PostgreSQL"
@@ -65,7 +65,7 @@ export default function SabaccPage() {
       </figure>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">What it does</h2>
+        <h2 className="font-serif text-2xl text-ink">Overview</h2>
         <p>
           Sabacc is played in rounds of drawing, trading, and betting. The site
           supports three variants, each with its own deck and rules:
@@ -108,7 +108,7 @@ export default function SabaccPage() {
       </figure>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">Keeping hands hidden</h2>
+        <h2 className="font-serif text-2xl text-ink">Hidden Information</h2>
         <p>
           A card game can’t send the whole game state to every player, because
           anyone can open the browser’s developer tools and read the WebSocket
@@ -126,7 +126,7 @@ export default function SabaccPage() {
       </section>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">One engine, three variants</h2>
+        <h2 className="font-serif text-2xl text-ink">Variant Architecture</h2>
         <p>
           The first version had one variant and two players. Adding a second
           variant meant either copying the server or restructuring it, so I
@@ -140,7 +140,7 @@ export default function SabaccPage() {
       </section>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">Migrating the database, twice</h2>
+        <h2 className="font-serif text-2xl text-ink">Database Migrations</h2>
         <p>
           The app started on SQLite. When the class-based backend arrived, I
           moved it to PostgreSQL, whose custom composite types could store
@@ -159,7 +159,7 @@ export default function SabaccPage() {
       </section>
 
       <section className="mt-12 space-y-4 text-[17px] leading-relaxed text-ink/90">
-        <h2 className="font-serif text-2xl text-ink">From solo project to team</h2>
+        <h2 className="font-serif text-2xl text-ink">Team and Scale</h2>
         <p>
           I built the first versions alone and hosted them on a Raspberry Pi.
           Once I shared the project online, other developers wanted to help,
@@ -170,7 +170,7 @@ export default function SabaccPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-serif text-2xl text-ink">How the interface evolved</h2>
+        <h2 className="font-serif text-2xl text-ink">Interface Evolution</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-3">
           {progression.map((step) => (
             <figure key={step.caption}>
