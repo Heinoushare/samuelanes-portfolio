@@ -2,7 +2,7 @@ export const site = {
   name: "Samuel Anes",
   email: "sanes@andrew.cmu.edu",
   url: "https://samuelanes.com",
-  role: "CMU ECE Freshman · Looking for a Summer 2027 internship",
+  role: "CMU ECE · Looking for a Summer 2027 internship",
   interests:
     "Robotics, controls, systems, and software",
   proof:
